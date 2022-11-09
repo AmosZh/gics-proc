@@ -41,22 +41,11 @@ spec:
         - containerPort: 80
 
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+
+apiVersion: v1
+kind: Secret
 metadata:
-  name: gics-app4-ingress
-  namespace: gics-prod
-  annotations:
-    kubernetes.io/ingress.class: nginx
-spec:
-  rules:
-  - host: test.example.de
-    http:
-      paths:
-      - backend:
-          service:
-            name: gics-app4
-            port:
-              number: 8080
-        path: /test
-        pathType: Prefix
+  name: app-secret
+data:
+  DB_HOST: mysql
+  DB_USER: root
