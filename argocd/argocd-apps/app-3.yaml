@@ -1,30 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
-
 kind: Application
-
 metadata:
-
   name: my-app-3
-
   namespace: argo-cd
-
   finalizers:
   - resources-finalizer.argocd.argoproj.io
-
 spec:
-
   destination:
-
     namespace: argo-cd
-
     server: https://kubernetes.default.svc
-
   project: default
-
   source:
-
     path: child-apps/app-3
-
     repoURL: https://github.com/AmosZh/gics-proc.git
-
     targetRevision: HEAD
