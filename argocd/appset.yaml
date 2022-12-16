@@ -11,6 +11,8 @@ spec:
         hostPrefix: amir
       - namespace: pascal-example-app
         hostPrefix: pascal
+      - namespace: gergely-example-app
+        hostPrefix: gergely
   template:
     metadata:
       name: '{{namespace}}'
