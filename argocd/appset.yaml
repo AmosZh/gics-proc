@@ -13,12 +13,14 @@ spec:
         hostPrefix: pascal
       - namespace: gergely-example-app
         hostPrefix: gergely
+      - namespace: gics-proc
+        hostPrefix: gics
   template:
     metadata:
       name: '{{namespace}}'
       namespace: argo-cd
       labels:
-        applicationSetName: demo
+        argocd.argoproj.io/instance: gics-proc
       finalizers:
       - resources-finalizer.argocd.argoproj.io
     spec:
