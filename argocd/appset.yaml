@@ -9,8 +9,8 @@ spec:
       elements:
       - namespace: amir-example-app
         hostPrefix: amir
-      # - namespace: pascal-example-app
-      #   hostPrefix: pascal
+      - namespace: simon-example-app
+        hostPrefix: pascal
       # - namespace: gergely-example-app
       #   hostPrefix: gergely
       # - namespace: gics-proc
