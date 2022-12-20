@@ -9,14 +9,14 @@ spec:
       elements:
       - namespace: amir-example-app
         hostPrefix: amir
-      - namespace: pascal-example-app
-        hostPrefix: pascal
-      - namespace: gergely-example-app
-        hostPrefix: gergely
-      - namespace: gics-proc
-        hostPrefix: gics
-      - namespace: test
-        hostPrefix: test
+      # - namespace: pascal-example-app
+      #   hostPrefix: pascal
+      # - namespace: gergely-example-app
+      #   hostPrefix: gergely
+      # - namespace: gics-proc
+      #   hostPrefix: gics
+      # - namespace: test
+      #   hostPrefix: test
   template:
     metadata:
       name: '{{namespace}}'
