@@ -9,14 +9,6 @@ spec:
       elements:
       - namespace: amir-example-app
         hostPrefix: amir
-      - namespace: simon-example-app
-        hostPrefix: pascal
-      # - namespace: gergely-example-app
-      #   hostPrefix: gergely
-      # - namespace: gics-proc
-      #   hostPrefix: gics
-      # - namespace: test
-      #   hostPrefix: test
   template:
     metadata:
       name: '{{namespace}}'
@@ -31,12 +23,12 @@ spec:
         repoURL: https://github.com/AmosZh/gics-proc.git
         targetRevision: HEAD
         path: argocd/helm/
-        helm:
-          parameters:
-          - name: 'ingress.host'
-            value: '{{hostPrefix}}.rke2-cluster-test.atix-training.de'
-          - name: 'image.tag'
-            value: "$ARGOCD_APP_REVISION"
+        # helm:
+        #   parameters:
+        #   - name: 'ingress.host'
+        #     value: '{{hostPrefix}}.rke2-cluster-test.atix-training.de'
+        #   - name: 'image.tag'
+        #     value: "$ARGOCD_APP_REVISION"
       destination:
         name: in-cluster
         namespace: '{{namespace}}'
