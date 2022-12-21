@@ -9,8 +9,6 @@ spec:
       elements:
       - namespace: amir-example-app
         hostPrefix: amir
-      - namespace: amir-example-app
-        hostPrefix: amir
   template:
     metadata:
       name: '{{namespace}}'
