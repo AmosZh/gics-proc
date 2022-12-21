@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: demo-2
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - namespace: test-example-app
+        hostPrefix: test
+  template:
+    metadata:
+      name: '{{namespace}}'
+      namespace: argo-cd
+      labels:
+        argocd.argoproj.io/instance: gics-proc
+      finalizers:
+      - resources-finalizer.argocd.argoproj.io
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/AmosZh/gics-proc.git
+        targetRevision: HEAD
+        path: argocd/helm/
+        # helm:
+        #   parameters:
+        #   - name: 'ingress.host'
+        #     value: '{{hostPrefix}}.rke2-cluster-test.atix-training.de'
+        #   - name: 'image.tag'
+        #     value: "$ARGOCD_APP_REVISION"
+      destination:
+        name: in-cluster
+        namespace: '{{namespace}}'
+      syncPolicy:
+        automated:
+          prune: true
+          allowEmpty: true
+        syncOptions:
+          - "CreateNamespace=true"
