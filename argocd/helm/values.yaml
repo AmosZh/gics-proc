@@ -1,3 +1,4 @@
 global:
   imageName: dockersamples/examplevotingapp_vote
   votingAppPodPort: 80
+# testing
