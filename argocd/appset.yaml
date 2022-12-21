@@ -9,28 +9,6 @@ spec:
       elements:
       - namespace: amir-example-app1
         hostPrefix: amir
-      - namespace: amir-example-app2
-        hostPrefix: amir
-      - namespace: amir-example-app3
-        hostPrefix: amir
-      - namespace: amir-example-app4
-        hostPrefix: amir
-      - namespace: amir-example-app5
-        hostPrefix: amir
-      - namespace: amir-example-app6
-        hostPrefix: amir
-      - namespace: amir-example-app7
-        hostPrefix: amir
-      - namespace: amir-example-app8
-        hostPrefix: amir
-      - namespace: amir-example-app9
-        hostPrefix: amir
-      - namespace: amir-example-app10
-        hostPrefix: amir
-      - namespace: amir-example-app11
-        hostPrefix: amir
-      - namespace: amir-example-app12
-        hostPrefix: amir
   template:
     metadata:
       name: '{{namespace}}'
@@ -61,38 +39,3 @@ spec:
         syncOptions:
           - "CreateNamespace=true"
 
-
-
-# apiVersion: argoproj.io/v1alpha1
-# kind: ApplicationSet
-# metadata:
-#   name: gics-app4
-#   namespace: argocd
-# spec:
-#   generators:
-#   - list:
-#       elements:
-#       - namespace: gics-app4-first-deployment
-#   template:
-#     metadata:
-#       name: '{{namespace}}'
-#       namespace: argocd
-#       labels:
-#         argocd.argoproj.io/instance: gics-proc
-#       finalizers:
-#       - resources-finalizer.argocd.argoproj.io
-#     spec:
-#       project: default
-#       source:
-#         repoURL: 
-#         targetRevision: HEAD
-#         path: 
-#       destination:
-#         name: in-cluster
-#         namespace: '{{namespace}}'
-#       syncPolicy:
-#         automated:
-#           prune: true
-#           allowEmpty: true
-#         syncOptions:
-#           - "CreateNamespace=true"
