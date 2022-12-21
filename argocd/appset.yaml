@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       name: '{{namespace}}'
-      namespace: argo-cd
+      namespace: argocd
       labels:
         argocd.argoproj.io/instance: gics-proc
       finalizers:
